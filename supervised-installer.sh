@@ -75,7 +75,7 @@ if [ ! -f "$FILE_DOCKER_CONF" ]; then
 
   # Restart Docker service
   info "Restarting docker service"
-  systemctl start docker
+  systemctl restart "$SERVICE_DOCKER"
 else
   STORAGE_DRIVER=$(docker info -f "{{json .}}" | jq -r -e .Driver)
   LOGGING_DRIVER=$(docker info -f "{{json .}}" | jq -r -e .LoggingDriver)
